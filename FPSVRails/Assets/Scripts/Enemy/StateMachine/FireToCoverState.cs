@@ -5,20 +5,29 @@ using UnityEngine;
 public class FireToCoverState : MonoBehaviour {
 
 	[SerializeField] private float speed;
-	[SerializeField] private Vector3 targetPos;
-	private Rigidbody rb;
+	private Vector3 targetPos;
+	private float accum = 0.0f;
+	private Vector3 srcPos;
 
 	void Awake()
 	{
-		rb = GetComponent<Rigidbody>();
-		targetPos = transform.position - targetPos;
+        targetPos = transform.position;
+	}
+
+	private void OnEnable()
+	{
+		accum = 0.0f;
+		srcPos = transform.position;
 	}
 
 	void FixedUpdate()
 	{
-		Vector3 direction = (targetPos - transform.position).normalized;
-		rb.MovePosition(transform.position + direction * speed * Time.deltaTime);
-		if (transform.position.y <= targetPos.y)
-			GetComponent<StateMachine>().ActivateState(StateMachine.States.CoverState);
+        Vector3 direction = (targetPos - transform.position).normalized;
+		accum += speed * Time.deltaTime;
+		
+		transform.position = Vector3.Lerp(srcPos, targetPos, Mathf.Clamp01(accum));
+
+        if (accum >= 1.0f)
+            GetComponent<StateMachine>().ActivateState(StateMachine.States.CoverState);
 	}
 }
