@@ -11,6 +11,10 @@ public class BulletScript : MonoBehaviour {
 		transform.Rotate(rndDirection);
 		Destroy(gameObject,lifetime);
 	}
+
+	private void OnTriggerEnter(Collider other) {
+		Destroy(gameObject);
+	}
 	
 	// Update is called once per frame
 	void Update () {

@@ -62,7 +62,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: a9a8ca0bca51ac343983d4e89f760011, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -147,7 +147,7 @@ MonoBehaviour:
   maxTime: 4
   m_BulletObject: {fileID: 1581652032335988, guid: 13d47fa87b2d0344eb92a81001b5b16d,
     type: 2}
-  m_Offset: {x: 0, y: 1}
+  m_Offset: {x: 0, y: 2}
 --- !u!114 &114544311935015494
 MonoBehaviour:
   m_ObjectHideFlags: 1
