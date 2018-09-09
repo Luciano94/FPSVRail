@@ -145,6 +145,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   minTime: 2
   maxTime: 4
+  m_BulletObject: {fileID: 1581652032335988, guid: 13d47fa87b2d0344eb92a81001b5b16d,
+    type: 2}
+  m_Offset: {x: 0, y: 1}
 --- !u!114 &114544311935015494
 MonoBehaviour:
   m_ObjectHideFlags: 1
