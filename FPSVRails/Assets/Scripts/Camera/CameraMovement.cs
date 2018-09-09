@@ -8,6 +8,12 @@ public class CameraMovement : MonoBehaviour {
 	Transform nextPos;
 	bool m_moving;
 
+	private void Start() {
+		NextArea();
+		transform.position = nextPos.position;
+		transform.rotation = nextPos.rotation;
+	}
+
 	void Update() {
 		if (Input.GetButtonDown("Fire1")) {
 			m_cameraRail.GetNextPosition(out nextPos);
@@ -25,6 +31,11 @@ public class CameraMovement : MonoBehaviour {
 				m_moving = false;
 			}
 		}
+	}
+
+	public void NextArea() {
+		m_cameraRail.GetNextPosition(out nextPos);
+		m_moving = true;
 	}
 
 	public bool IsMoving() {
