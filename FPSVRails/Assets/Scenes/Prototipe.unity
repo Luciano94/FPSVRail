@@ -513,6 +513,10 @@ Prefab:
       propertyPath: m_positions.Array.data[5]
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 4762523084733786, guid: 44cfde29eb68dfb438d4542c7516cd48, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 180
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44cfde29eb68dfb438d4542c7516cd48, type: 2}
   m_IsPrefabAsset: 0
@@ -12799,6 +12803,25 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1271317624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1725996561754266, guid: 44cfde29eb68dfb438d4542c7516cd48,
+    type: 2}
+  m_PrefabInternal: {fileID: 117674186}
+--- !u!114 &1271317626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1271317624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 82948329ab56ee945b41fac84083b772, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 50
+  minLimit: {x: 45, y: 45}
+  maxLimit: {x: 45, y: 45}
 --- !u!43 &1277278201
 Mesh:
   m_ObjectHideFlags: 0
