@@ -14,11 +14,11 @@ TagManager:
   - 
   - 
   - PostProcessing
-  - 
-  - 
-  - 
-  - 
-  - 
+  - EneTrigger
+  - Barricade
+  - Bullets
+  - Player
+  - Enemies
   - 
   - 
   - 

@@ -7,9 +7,9 @@ public class AreaController : MonoBehaviour {
     [SerializeField] CameraMovement m_camMov;
 
     private void Awake() {
-        foreach (EnemyArea enemy in m_enemies) {
+        /*foreach (EnemyArea enemy in m_enemies) {
             enemy.SetAreaController(this);
-        }
+        }*/
     }
 
     public void Remove(EnemyArea enemy) {

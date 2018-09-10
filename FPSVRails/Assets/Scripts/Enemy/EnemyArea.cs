@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 public class EnemyArea : MonoBehaviour {
-    AreaController m_areaController;
+    [SerializeField] AreaController m_areaController;
 
     public void SetAreaController(AreaController areaController) {
         m_areaController = areaController;

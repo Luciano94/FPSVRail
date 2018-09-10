@@ -23,7 +23,7 @@ public class FireState : MonoBehaviour {
 		currentTime += Time.deltaTime;
 		if(Time.time > m_FireTime){
 			this.m_FireTime = Time.time + (float)Random.Range(this.m_Offset.x, this.m_Offset.y);
-			GameObject bulletClone = (GameObject)Instantiate(m_BulletObject, transform.position, transform.rotation);
+			Instantiate(m_BulletObject, transform.position, transform.rotation);
 		}
 		if (currentTime > time){
 			GetComponent<StateMachine>().ActivateState(StateMachine.States.FireToCoverState);
