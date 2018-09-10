@@ -52,8 +52,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14096217c1e0c3442badc54017123ec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_enemies:
-  - {fileID: 0}
+  m_enemies: []
   m_camMov: {fileID: 0}
 --- !u!114 &114981658105472388
 MonoBehaviour:
