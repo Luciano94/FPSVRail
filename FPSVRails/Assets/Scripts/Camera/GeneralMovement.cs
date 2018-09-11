@@ -16,7 +16,7 @@ public class GeneralMovement : MonoBehaviour {
         Movement(); 
     }
 
-    private void BuscarAngulos() {
+    public void BuscarAngulos() {
         minLimit.x -= transform.eulerAngles.x;
         minLimit.y = transform.eulerAngles.y + minLimit.y;
         maxLimit.x += transform.eulerAngles.x;

@@ -5,8 +5,13 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour {
 	[SerializeField] CameraRail m_cameraRail;
 	[SerializeField] float m_speed = 1f;
+	GeneralMovement m_movement;
 	Transform nextPos;
 	bool m_moving;
+
+	private void Awake() {
+		m_movement = GetComponent<GeneralMovement>();
+	}
 
 	private void Start() {
 		NextArea();
@@ -24,6 +29,7 @@ public class CameraMovement : MonoBehaviour {
 				transform.rotation = Quaternion.Lerp(transform.rotation,
 					nextPos.rotation, delta);
 			} else {
+				m_movement.BuscarAngulos();
 				m_moving = false;
 			}
 		}

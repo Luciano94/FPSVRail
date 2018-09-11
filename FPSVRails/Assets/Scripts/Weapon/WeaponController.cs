@@ -11,29 +11,27 @@ public class WeaponController : MonoBehaviour {
     }
 
     private void Update() {
-        float dx = Input.GetAxis("AimX");
-        float dy = -Input.GetAxis("AimY");
+        float dx = Input.GetAxis("AimX") * 6f;
+        float dy = -Input.GetAxis("AimY") * 6f;
         if (dx != 0f || dy != 0f) {
             Vector3 newPos = transform.localPosition;
             newPos.x += dx;
             newPos.y += dy;
             transform.localPosition = newPos;
         }
-        Vector3 start = m_camera.ScreenToWorldPoint(new Vector3(
-            m_rect.position.x,
-            m_rect.position.y,
-            m_camera.nearClipPlane
-        ));
-        
+
         Ray ray = m_camera.ScreenPointToRay(m_rect.position);
         
         Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100f, Color.red);
         if (Input.GetButtonDown("Fire1")) {
             RaycastHit hit;
             if (Physics.SphereCast(ray.origin, m_radius,
-                    ray.direction, out hit, 100f, m_enemiesLayer)) {
+                    ray.direction, out hit, 100f)) {
 
-                hit.transform.GetComponent<EnemyHealth>().Damage(m_damage);
+                EnemyHealth enemyHealth;
+                if (enemyHealth = hit.transform.GetComponent<EnemyHealth>()){
+                    enemyHealth.Damage(m_damage);
+                }
             }
         }
     }
