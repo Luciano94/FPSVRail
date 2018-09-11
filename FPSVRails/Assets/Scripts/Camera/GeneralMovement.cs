@@ -21,6 +21,8 @@ public class GeneralMovement : MonoBehaviour {
 
     private void BuscarAngulos()
     {
+        rotHor = 0f;
+        rotVert = 0f;
         rotation = transform.localEulerAngles;
     }
 
