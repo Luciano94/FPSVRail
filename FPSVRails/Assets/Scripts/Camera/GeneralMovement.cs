@@ -25,9 +25,9 @@ public class GeneralMovement : MonoBehaviour {
     private void Movement(){
         rotVert += Input.GetAxis("Vertical") * speed * Time.deltaTime;
         rotVert = Mathf.Clamp(rotVert , minLimit.x, maxLimit.x);
-        rotHor += Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        rotHor -= Input.GetAxis("Horizontal") * speed * Time.deltaTime;
         rotHor = Mathf.Clamp(rotHor, minLimit.y, maxLimit.y);
 
-        transform.eulerAngles = new Vector3(-rotVert,rotHor,0);
+        transform.eulerAngles = new Vector3(-rotVert,-rotHor,0);
     }
 }
