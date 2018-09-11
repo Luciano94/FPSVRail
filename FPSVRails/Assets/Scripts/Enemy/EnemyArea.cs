@@ -7,7 +7,7 @@ public class EnemyArea : MonoBehaviour {
         m_areaController = areaController;
     }
 
-    private void OnDisable() {
+    private void OnDeath() {
         m_areaController.Remove(this);
     }
 }

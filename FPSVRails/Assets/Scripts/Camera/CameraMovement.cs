@@ -15,10 +15,6 @@ public class CameraMovement : MonoBehaviour {
 	}
 
 	void Update() {
-		if (Input.GetButtonDown("Fire1")) {
-			m_cameraRail.GetNextPosition(out nextPos);
-			m_moving = true;
-		}
 		if (nextPos != null && m_moving) {
 			if (transform.position != nextPos.position) {
 				float distance = Vector3.Distance(transform.position, nextPos.position);
@@ -34,7 +30,7 @@ public class CameraMovement : MonoBehaviour {
 	}
 
 	public void NextArea() {
-		m_cameraRail.GetNextPosition(out nextPos);
+		m_cameraRail.GetNextPosition(ref nextPos);
 		m_moving = true;
 	}
 

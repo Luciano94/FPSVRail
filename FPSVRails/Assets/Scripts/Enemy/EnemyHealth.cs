@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class EnemyHealth : MonoBehaviour {
 	[SerializeField] private int life;
-	
-	public void Damage(int amount){
+
+	public void Damage(int amount) {
 		life--;
-		if(life <= 0){
+		if (life <= 0) {
+			SendMessage("OnDeath");
 			gameObject.SetActive(false);
 		}
 	}
