@@ -4,6 +4,7 @@ public class WeaponController : MonoBehaviour {
     [SerializeField] float m_radius;
     [SerializeField] int m_damage;
     [SerializeField] Camera m_camera;
+    [SerializeField] float m_sensitivity;
     RectTransform m_rect;
 
     private void Awake() {
@@ -11,8 +12,8 @@ public class WeaponController : MonoBehaviour {
     }
 
     private void Update() {
-        float dx = Input.GetAxis("AimX") * 6f;
-        float dy = -Input.GetAxis("AimY") * 6f;
+        float dx = Input.GetAxis("AimX") * m_sensitivity;
+        float dy = -Input.GetAxis("AimY") * m_sensitivity;
         if (dx != 0f || dy != 0f) {
             Vector3 newPos = transform.localPosition;
             newPos.x += dx;

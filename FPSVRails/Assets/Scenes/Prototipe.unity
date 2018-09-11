@@ -532,6 +532,11 @@ Prefab:
       propertyPath: m_levelManager
       value: 
       objectReference: {fileID: 302675509}
+    - target: {fileID: 114823163952431106, guid: 44cfde29eb68dfb438d4542c7516cd48,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 44cfde29eb68dfb438d4542c7516cd48, type: 2}
   m_IsPrefabAsset: 0
@@ -20770,7 +20775,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 50, y: 50}
+  m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1897917972
 MonoBehaviour:
@@ -20813,9 +20818,10 @@ MonoBehaviour:
   m_enemiesLayer:
     serializedVersion: 2
     m_Bits: 8192
-  m_radius: 2
+  m_radius: 0.05
   m_damage: 10
   m_camera: {fileID: 1271317631}
+  m_sensitivity: 15
 --- !u!222 &1897917974
 CanvasRenderer:
   m_ObjectHideFlags: 0

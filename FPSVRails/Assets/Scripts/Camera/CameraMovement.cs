@@ -11,6 +11,7 @@ public class CameraMovement : MonoBehaviour {
 
 	private void Awake() {
 		m_movement = GetComponent<GeneralMovement>();
+		m_movement.enabled = false;
 	}
 
 	private void Start() {
@@ -29,7 +30,7 @@ public class CameraMovement : MonoBehaviour {
 				transform.rotation = Quaternion.Lerp(transform.rotation,
 					nextPos.rotation, delta);
 			} else {
-				m_movement.BuscarAngulos();
+				m_movement.enabled = true;
 				m_moving = false;
 			}
 		}
@@ -37,6 +38,7 @@ public class CameraMovement : MonoBehaviour {
 
 	public void NextArea() {
 		m_cameraRail.GetNextPosition(ref nextPos);
+		m_movement.enabled = false;
 		m_moving = true;
 	}
 
