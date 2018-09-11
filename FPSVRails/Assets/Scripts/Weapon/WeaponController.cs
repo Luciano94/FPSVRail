@@ -6,9 +6,13 @@ public class WeaponController : MonoBehaviour {
     [SerializeField] Camera m_camera;
     [SerializeField] float m_sensitivity;
     RectTransform m_rect;
+    float m_halfWitdh;
+    float m_halfHeigth;
 
     private void Awake() {
        m_rect = GetComponent<RectTransform>();
+       m_halfWitdh = Screen.width * .5f;
+       m_halfHeigth = Screen.height * .5f;
     }
 
     private void Update() {
@@ -18,6 +22,8 @@ public class WeaponController : MonoBehaviour {
             Vector3 newPos = transform.localPosition;
             newPos.x += dx;
             newPos.y += dy;
+            newPos.x = Mathf.Clamp(newPos.x, -m_halfWitdh, m_halfWitdh);
+            newPos.y = Mathf.Clamp(newPos.y, -m_halfHeigth, m_halfHeigth);
             transform.localPosition = newPos;
         }
 
