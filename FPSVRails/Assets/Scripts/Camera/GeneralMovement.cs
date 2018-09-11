@@ -10,16 +10,18 @@ public class GeneralMovement : MonoBehaviour {
     private float rotHor = 0f;
 
     private void Awake() {
-        minLimit.x = transform.eulerAngles.x - minLimit.x;
-        minLimit.y = transform.eulerAngles.y - minLimit.y;
-        maxLimit.x += transform.eulerAngles.x;
-        maxLimit.y += transform.eulerAngles.y;
+        BuscarAngulos();
     }
-
     private void Update() {
         Movement(); 
     }
 
+    private void BuscarAngulos() {
+        minLimit.x -= transform.eulerAngles.x;
+        minLimit.y = transform.eulerAngles.y + minLimit.y;
+        maxLimit.x += transform.eulerAngles.x;
+        maxLimit.y += transform.eulerAngles.y;
+    }
     private void Movement(){
         rotVert += Input.GetAxis("Vertical") * speed * Time.deltaTime;
         rotVert = Mathf.Clamp(rotVert , minLimit.x, maxLimit.x);

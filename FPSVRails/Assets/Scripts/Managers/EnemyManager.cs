@@ -17,6 +17,13 @@ public class EnemyManager : MonoBehaviour {
 	}
 	[SerializeField] private List<GameObject> groups;
 	[SerializeField] private Queue<GameObject> groupsOfEnemies;
+	private GameObject actualGroup;
+
+	public GameObject ActualGroup{
+		get{
+			return actualGroup;
+		}
+	}
 	private void Awake() {
 		groupsOfEnemies = new Queue<GameObject>();
 		foreach(GameObject go in groups){
@@ -26,7 +33,10 @@ public class EnemyManager : MonoBehaviour {
 	}
 
 	public void ActiveGroup(){
-		if(groupsOfEnemies.Count != 0)
-			groupsOfEnemies.Dequeue().GetComponent<EnemyGroup>().enabled = true;
+		if(groupsOfEnemies.Count != 0){
+			actualGroup = groupsOfEnemies.Dequeue();
+			actualGroup.GetComponent<EnemyGroup>().enabled = true;
+		}
+
 	}
 }
