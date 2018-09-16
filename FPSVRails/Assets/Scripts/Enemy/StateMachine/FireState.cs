@@ -8,6 +8,9 @@ public class FireState : MonoBehaviour {
 	[SerializeField] private float maxTime;
 	private float time;
 	private float currentTime;
+	private float m_FireTime = 0.0f;
+	[SerializeField] private GameObject m_BulletObject;
+	[SerializeField] private Vector2 m_Offset;
 
 	private void OnEnable()
 	{
@@ -18,7 +21,12 @@ public class FireState : MonoBehaviour {
 	void Update()
 	{
 		currentTime += Time.deltaTime;
-		if (currentTime > time)
+		if(Time.time > m_FireTime){
+			this.m_FireTime = Time.time + (float)Random.Range(this.m_Offset.x, this.m_Offset.y);
+			Instantiate(m_BulletObject, transform.position, transform.rotation);
+		}
+		if (currentTime > time){
 			GetComponent<StateMachine>().ActivateState(StateMachine.States.FireToCoverState);
+		}
 	}
 }

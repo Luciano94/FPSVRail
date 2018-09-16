@@ -16,8 +16,8 @@ public class StateMachine : MonoBehaviour {
 	[SerializeField] private States initState;
 	[SerializeField] private MonoBehaviour actualState;
 
-	void Awake () {
-		ActivateState(initState);
+	private void OnEnable() {
+		//ActivateState(initState);
 	}
 
 	public void ActivateState(States states)
