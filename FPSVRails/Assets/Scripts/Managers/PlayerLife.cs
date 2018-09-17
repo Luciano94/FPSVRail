@@ -12,15 +12,13 @@ public class PlayerLife : MonoBehaviour {
 		healthTxt.text = "Health: " + health.ToString();
 	}
 
-	private void OnTriggerEnter(Collider other) {
-		if(other.tag != "EneTrigger"){	
-			if(health > 1){
-				health--;
-				healthTxt.text = "Health: " + health.ToString(); 
-			}
-			else{
-				SceneManager.LoadScene("End");
-			}
+	public void TakeDamage() {	
+		if(health > 1){
+			health--;
+			healthTxt.text = "Health: " + health.ToString(); 
+		}
+		else{
+			SceneManager.LoadScene("End");
 		}
 	}
 }
