@@ -9,10 +9,13 @@ public class WeaponController : MonoBehaviour {
     float m_halfWitdh;
     float m_halfHeigth;
 
+    AmmoController ammoController;
+
     private void Awake() {
        m_rect = GetComponent<RectTransform>();
        m_halfWitdh = Screen.width * .5f;
        m_halfHeigth = Screen.height * .5f;
+       ammoController = AmmoController.Instance;
     }
 
     private void Update() {
@@ -30,7 +33,7 @@ public class WeaponController : MonoBehaviour {
         Ray ray = m_camera.ScreenPointToRay(m_rect.position);
         
         Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100f, Color.red);
-        if (Input.GetButtonDown("Fire1")) {
+        if (Input.GetButtonDown("Fire1") && ammoController.shoot()) {
             RaycastHit hit;
             if (Physics.SphereCast(ray.origin, m_radius,
                     ray.direction, out hit, 100f)) {

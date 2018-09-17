@@ -8,17 +8,19 @@ public class CameraCover : MonoBehaviour {
 	CameraMovement m_camMovement;
 	Vector3 m_targetPosition;
 	bool m_covered;
-
+	AmmoController ammoController;
 	private void Awake() {
 		m_camMovement = GetComponent<CameraMovement>();
 		m_targetPosition = transform.position;
 		m_covered = false;
+		ammoController = AmmoController.Instance;
 	}
 
 	private void Update() {
 		if (!m_camMovement.IsMoving()) {
 			if (Input.GetButtonDown("Jump")) {
 				TakeCover();
+				ammoController.reload();
 			}
 			transform.position = Vector3.Lerp(transform.position,
 				m_targetPosition, Time.deltaTime * m_speed);
