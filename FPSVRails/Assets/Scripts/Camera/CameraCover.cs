@@ -9,7 +9,8 @@ public class CameraCover : MonoBehaviour {
 	Vector3 m_targetPosition;
 	bool m_covered;
 	AmmoController ammoController;
-	private void Awake() {
+
+	private void Start() {
 		m_camMovement = GetComponent<CameraMovement>();
 		m_targetPosition = transform.position;
 		m_covered = false;
@@ -18,7 +19,7 @@ public class CameraCover : MonoBehaviour {
 
 	private void Update() {
 		if (!m_camMovement.IsMoving()) {
-			if (Input.GetButtonDown("Jump")) {
+			if (InputManager.Instance.TakeCover()) {
 				TakeCover();
 				ammoController.reload();
 			}
