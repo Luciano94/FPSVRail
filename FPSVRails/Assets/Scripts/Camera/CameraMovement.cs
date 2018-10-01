@@ -36,6 +36,7 @@ public class CameraMovement : MonoBehaviour {
 		}
 	}
 
+	[ContextMenu("NextArea")]
 	public void NextArea() {
 		m_cameraRail.GetNextPosition(ref nextPos);
 		m_movement.enabled = false;
