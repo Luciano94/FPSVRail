@@ -19,16 +19,17 @@ public class AmmoController : MonoBehaviour {
 
 	[SerializeField] private int maxAmmo;
 	[SerializeField] Text ammoTxt;
+	[SerializeField] AudioSource shootSound;
+	[SerializeField] AudioSource reloadSound;
 	private int currentAmmo;
-	InputManager inputManager;
 
 	private void Awake() {
-		inputManager = InputManager.Instance;
 		currentAmmo = maxAmmo;
 		ammoTxt.text = 	currentAmmo + " / "+ maxAmmo;
 	}
 	public bool shoot(){
 		if(currentAmmo > 0){
+			shootSound.Play();
 			currentAmmo--;
 			ammoTxt.text = currentAmmo + " / "+ maxAmmo;
 			return true;
@@ -37,7 +38,10 @@ public class AmmoController : MonoBehaviour {
 	}
 
 	public void reload(){
-		currentAmmo = maxAmmo;
-		ammoTxt.text = currentAmmo + " / "+ maxAmmo;
+		if(currentAmmo < maxAmmo){
+			reloadSound.Play();
+			currentAmmo = maxAmmo;
+			ammoTxt.text = currentAmmo + " / "+ maxAmmo;
+		}
 	}
 }
