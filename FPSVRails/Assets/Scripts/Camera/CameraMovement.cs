@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class CameraMovement : MonoBehaviour {
 	[SerializeField] CameraRail m_cameraRail;
-	[SerializeField] float m_speed = 1f;
+	[SerializeField] float m_speed = 15f;
 	GeneralMovement m_movement;
 	Transform nextPos;
 	bool m_moving;
@@ -23,33 +23,22 @@ public class CameraMovement : MonoBehaviour {
 	}
 
 	void Update() {
-		//Debug.Log(m_moving + " " + navMeshAgent.remainingDistance);
 		if (m_moving) {
-			if(navMeshAgent.remainingDistance < 0.5){
+			if(navMeshAgent.enabled == true && navMeshAgent.remainingDistance < 0.5){
 				navMeshAgent.enabled = false;
-				transform.position = nextPos.position;
-				transform.rotation = nextPos.rotation;
-				m_movement.enabled = true;
-				m_moving = false;
 			}
-			
-			/*navMeshAgent.enabled = true;
-			float distance = Vector3.Distance(transform.position, nextPos.position);
-			if (distance > 1) {
-				navMeshAgent.SetDestination(nextPos.position);
-				/*float distance = Vector3.Distance(transform.position, nextPos.position);
-				float delta = Time.deltaTime * (m_speed / distance);
-				transform.position = Vector3.Lerp(transform.position,
-					nextPos.position, delta);
-				transform.rotation = Quaternion.Lerp(transform.rotation,
-					nextPos.rotation, delta);
-			}else {
-					navMeshAgent.enabled = false;
-					m_movement.enabled = true;
-					m_moving = false;
-					transform.position = nextPos.position;
-					transform.rotation = nextPos.rotation;
-			}*/
+			rotateToPoint();
+		}
+	}
+
+	private void rotateToPoint(){
+		float delta = Time.deltaTime * m_speed;
+		transform.rotation = Quaternion.Lerp(transform.rotation,
+			nextPos.rotation, delta);
+		Debug.Log(transform.rotation+" "+nextPos.rotation);
+		if(transform.rotation == nextPos.rotation){
+			m_movement.enabled = true;
+			m_moving = false;
 		}
 	}
 
