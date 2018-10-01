@@ -31,7 +31,7 @@ public class VirtualJoystick : MonoBehaviour, IDragHandler,
                 m_joystickImage.rectTransform.anchoredPosition = new Vector2(
                     m_inputVector.x * (m_bgImage.rectTransform.sizeDelta.x / 3f),
                     m_inputVector.y * (m_bgImage.rectTransform.sizeDelta.y / 3f));
-                print(m_inputVector);
+               // print(m_inputVector);
             }
         }
 

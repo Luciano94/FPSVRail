@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class CameraMovement : MonoBehaviour {
 	[SerializeField] CameraRail m_cameraRail;
-	[SerializeField] float m_speed = 15f;
+	[SerializeField] float m_speed = 1f;
 	GeneralMovement m_movement;
 	Transform nextPos;
 	bool m_moving;
@@ -24,8 +24,9 @@ public class CameraMovement : MonoBehaviour {
 
 	void Update() {
 		if (m_moving) {
-			if(navMeshAgent.enabled == true && navMeshAgent.remainingDistance < 0.5){
+			if(navMeshAgent.enabled == true && navMeshAgent.remainingDistance < 1){
 				navMeshAgent.enabled = false;
+				transform.position = nextPos.position;
 			}
 			rotateToPoint();
 		}
@@ -35,7 +36,6 @@ public class CameraMovement : MonoBehaviour {
 		float delta = Time.deltaTime * m_speed;
 		transform.rotation = Quaternion.Lerp(transform.rotation,
 			nextPos.rotation, delta);
-		Debug.Log(transform.rotation+" "+nextPos.rotation);
 		if(transform.rotation == nextPos.rotation){
 			m_movement.enabled = true;
 			m_moving = false;

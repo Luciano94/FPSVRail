@@ -20,8 +20,10 @@ public class AmmoController : MonoBehaviour {
 	[SerializeField] private int maxAmmo;
 	[SerializeField] Text ammoTxt;
 	private int currentAmmo;
+	InputManager inputManager;
 
 	private void Awake() {
+		inputManager = InputManager.Instance;
 		currentAmmo = maxAmmo;
 		ammoTxt.text = 	currentAmmo + " / "+ maxAmmo;
 	}
