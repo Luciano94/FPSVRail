@@ -10,27 +10,28 @@ public class GeneralMovement : MonoBehaviour {
     private float rotHor = 0f;
     Vector3 rotation;
 
-    private void OnEnable()
-    {
+    private void OnEnable() {
         BuscarAngulos();
     }
-    private void Update()
-    {
+    private void Update() {
         Movement();
     }
 
-    private void BuscarAngulos()
-    {
+    private void BuscarAngulos() {
         rotHor = 0f;
         rotVert = 0f;
         rotation = transform.localEulerAngles;
     }
 
-    private void Movement()
-    {
-        rotVert += Input.GetAxis("Vertical") * speed * Time.deltaTime;
+    private void Movement() {
+        if (InputManager.Instance.CheckResetCamera()) {
+            rotVert = 0f;
+            rotHor = 0f;
+        }
+        Vector2 camInput = InputManager.Instance.CameraMovement();
+        rotVert += camInput.y * speed * Time.deltaTime;;
         rotVert = Mathf.Clamp(rotVert, minLimit.x, maxLimit.x);
-        rotHor += Input.GetAxis("Horizontal") * speed * Time.deltaTime;
+        rotHor += camInput.x * speed * Time.deltaTime;
         rotHor = Mathf.Clamp(rotHor, minLimit.y, maxLimit.y);
         Vector3 rot = new Vector3(-rotVert, rotHor, 0);
         rot += rotation;

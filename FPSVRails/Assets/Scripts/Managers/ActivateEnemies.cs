@@ -7,11 +7,11 @@ public class ActivateEnemies : MonoBehaviour {
 	private EnemyManager eManager;
 
 	// Use this for initialization
-	void Awake () {
+	void Awake() {
 		eManager = EnemyManager.Instance;
 	}
-	
-	private void OnTriggerEnter(Collider other){
+
+	private void OnTriggerEnter(Collider other) {
 		eManager.ActiveGroup();
 		Destroy(gameObject);
 	}
