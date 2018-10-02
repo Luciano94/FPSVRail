@@ -19,6 +19,10 @@ public class PlayerLife : MonoBehaviour {
 			healthTxt.text = "Health: " + health.ToString();
 			damageTaken.Invoke();
 		} else {
+			Handheld.Vibrate();
+			healthTxt.text = "Health: " + health.ToString(); 
+		}
+		else{
 			SceneManager.LoadScene("End");
 		}
 	}
