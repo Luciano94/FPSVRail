@@ -7,6 +7,7 @@ public class CameraMovement : MonoBehaviour {
 	[SerializeField] CameraRail m_cameraRail;
 	[SerializeField] float m_speed = 1f;
 	GeneralMovement m_movement;
+	CameraCover m_cover;
 	Transform nextPos;
 	bool m_moving;
 	NavMeshAgent navMeshAgent;
@@ -15,6 +16,7 @@ public class CameraMovement : MonoBehaviour {
 	private void Awake() {
 		m_movement = GetComponent<GeneralMovement>();
 		navMeshAgent = GetComponent<NavMeshAgent>();
+		m_cover = GetComponent<CameraCover>();
 		m_movement.enabled = false;
 	}
 
@@ -24,6 +26,7 @@ public class CameraMovement : MonoBehaviour {
 
 	void Update() {
 		if (m_moving) {
+			m_movement.enabled = false;
 			if(navMeshAgent.enabled == true && navMeshAgent.remainingDistance < 1){
 				navMeshAgent.enabled = false;
 				transform.position = nextPos.position;

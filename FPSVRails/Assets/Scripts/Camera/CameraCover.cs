@@ -17,7 +17,7 @@ public class CameraCover : MonoBehaviour {
 		ammoController = AmmoController.Instance;
 	}
 
-	private void Update() {
+	private void LateUpdate() {
 		if (!m_camMovement.IsMoving()) {
 			if (InputManager.Instance.TakeCover()) {
 				TakeCover();
