@@ -3,8 +3,9 @@
 [RequireComponent(typeof(VRInput))]
 [RequireComponent(typeof(ScreenInput))]
 public class InputManager : MonoBehaviour, IInput {
+    [SerializeField] GameObject m_screenInputCanvas;
+    [SerializeField] CameraMovement m_cameraMovement;
     [SerializeField] bool m_VRmode = false;
-    [SerializeField] GameObject ScreenInputCanvas;
     IInput m_input;
     static InputManager m_instance;
     public static InputManager Instance {
@@ -20,10 +21,10 @@ public class InputManager : MonoBehaviour, IInput {
     private void Awake() {
         if (m_VRmode) {
             m_input = GetComponent<VRInput>();
-            ScreenInputCanvas.SetActive(false);
+            m_screenInputCanvas.SetActive(false);
         } else {
             m_input = GetComponent<ScreenInput>();
-            ScreenInputCanvas.SetActive(true);
+            m_screenInputCanvas.SetActive(true);
         }
     }
 
@@ -36,11 +37,19 @@ public class InputManager : MonoBehaviour, IInput {
     }
 
     public bool Fire() {
-        return m_input.Fire();
+        if (m_cameraMovement.IsMoving()) {
+            return false;
+        } else {
+            return m_input.Fire();
+        }
     }
 
     public bool TakeCover() {
-        return m_input.TakeCover();
+        if (m_cameraMovement.IsMoving()) {
+            return false;
+        } else {
+            return m_input.TakeCover();
+        }
     }
 
     public bool CheckResetCamera() {
@@ -54,11 +63,11 @@ public class InputManager : MonoBehaviour, IInput {
     public void SwitchMode() {
         if (m_VRmode) {
             m_input = GetComponent<ScreenInput>();
-            ScreenInputCanvas.SetActive(true);
+            m_screenInputCanvas.SetActive(true);
             m_VRmode = false;
         } else {
             m_input = GetComponent<VRInput>();
-            ScreenInputCanvas.SetActive(false);
+            m_screenInputCanvas.SetActive(false);
             m_VRmode = true;
         }
     }
