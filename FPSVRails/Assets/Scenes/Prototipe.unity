@@ -541,6 +541,11 @@ Prefab:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 114240066252877276, guid: 44cfde29eb68dfb438d4542c7516cd48,
+        type: 2}
+      propertyPath: m_fireButton
+      value: 
+      objectReference: {fileID: 533304902}
     m_RemovedComponents:
     - {fileID: 114887366810153004, guid: 44cfde29eb68dfb438d4542c7516cd48, type: 2}
     - {fileID: 114627201216785146, guid: 44cfde29eb68dfb438d4542c7516cd48, type: 2}
@@ -5099,6 +5104,12 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1725996561754266, guid: 44cfde29eb68dfb438d4542c7516cd48,
     type: 2}
   m_PrefabInternal: {fileID: 117674186}
+--- !u!114 &367460605 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114240066252877276, guid: 44cfde29eb68dfb438d4542c7516cd48,
+    type: 2}
+  m_PrefabInternal: {fileID: 117674186}
+  m_Script: {fileID: 11500000, guid: d7186471a2014f94894fa3c10b72613e, type: 3}
 --- !u!114 &367460606 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114330536487676270, guid: 44cfde29eb68dfb438d4542c7516cd48,
@@ -22567,6 +22578,7 @@ MonoBehaviour:
   m_damage: 10
   m_camera: {fileID: 1271317631}
   m_sensitivity: 15
+  m_cover: {fileID: 367460605}
 --- !u!222 &1897917974
 CanvasRenderer:
   m_ObjectHideFlags: 0
