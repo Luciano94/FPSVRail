@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class CameraCover : MonoBehaviour {
 	[SerializeField] float m_speed;
 	[SerializeField] float m_height = 0.5f;
+	[SerializeField] Button m_fireButton;
 	CameraMovement m_camMovement;
 	Vector3 m_targetPosition;
 	bool m_covered;
@@ -34,5 +36,10 @@ public class CameraCover : MonoBehaviour {
 		m_targetPosition = transform.position +
 			Vector3.up * m_height * (m_covered? 1f: -1f);
 		m_covered = !m_covered;
+		m_fireButton.interactable = !m_covered;
+	}
+
+	public bool IsCovered() {
+		return m_covered;
 	}
 }

@@ -5,10 +5,10 @@ public class WeaponController : MonoBehaviour {
     [SerializeField] int m_damage;
     [SerializeField] Camera m_camera;
     [SerializeField] float m_sensitivity;
+    [SerializeField] CameraCover m_cover;
     RectTransform m_rect;
     float m_halfWitdh;
     float m_halfHeigth;
-
     AmmoController ammoController;
 
     private void Awake() {
@@ -29,14 +29,16 @@ public class WeaponController : MonoBehaviour {
         Ray ray = m_camera.ScreenPointToRay(m_rect.position);
 
         Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100f, Color.red);
-        if (InputManager.Instance.Fire() && ammoController.shoot()) {
-            RaycastHit hit;
-            if (Physics.SphereCast(ray.origin, m_radius,
-                    ray.direction, out hit, 100f)) {
+        if (InputManager.Instance.Fire() && !m_cover.IsCovered()) {
+            if (ammoController.shoot()) {
+                RaycastHit hit;
+                if (Physics.SphereCast(ray.origin, m_radius,
+                        ray.direction, out hit, 100f)) {
 
-                EnemyHealth enemyHealth;
-                if (enemyHealth = hit.transform.GetComponent<EnemyHealth>()) {
-                    enemyHealth.Damage(m_damage);
+                    EnemyHealth enemyHealth;
+                    if (enemyHealth = hit.transform.GetComponent<EnemyHealth>()) {
+                        enemyHealth.Damage(m_damage);
+                    }
                 }
             }
         }
