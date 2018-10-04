@@ -21,11 +21,14 @@ public class AmmoController : MonoBehaviour {
 	[SerializeField] Text ammoTxt;
 	[SerializeField] AudioSource shootSound;
 	[SerializeField] AudioSource reloadSound;
+	[SerializeField] AudioSource emptyGun;
+	[SerializeField] Image reloadImg;
 	private int currentAmmo;
 
 	private void Awake() {
 		currentAmmo = maxAmmo;
 		ammoTxt.text = 	currentAmmo + " / "+ maxAmmo;
+		reloadImg.enabled = false;
 	}
 	public bool shoot(){
 		if(currentAmmo > 0){
@@ -34,11 +37,14 @@ public class AmmoController : MonoBehaviour {
 			ammoTxt.text = currentAmmo + " / "+ maxAmmo;
 			return true;
 		}
+		emptyGun.Play();
+		reloadImg.enabled =  true;
 		return false;
 	}
 
 	public void reload(){
 		if(currentAmmo < maxAmmo){
+			reloadImg.enabled =  false;
 			reloadSound.Play();
 			currentAmmo = maxAmmo;
 			ammoTxt.text = currentAmmo + " / "+ maxAmmo;
