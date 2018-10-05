@@ -15,7 +15,9 @@ public class BulletScript : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider other) {
-		if (other.tag == "Player")impactSound.Play();
+		if (other.tag == "Player" &&
+		!other.GetComponent<CameraMovement>().IsMoving())
+			impactSound.Play();
 		Invoke("Disable", 0.5f);
 	}
 
