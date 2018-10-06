@@ -7,7 +7,7 @@ public class PauseMenu : MonoBehaviour {
 	Canvas m_pauseMenu;
 
 	private void Awake() {
-		DontDestroyOnLoad(gameObject);
+		DontDestroyOnLoad(transform.parent.gameObject);
 		m_pauseMenu = GetComponent<Canvas>();
 		foreach (Canvas hud in m_HUDs) {
 			hud.enabled = true;
