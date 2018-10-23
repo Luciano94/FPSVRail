@@ -27,7 +27,9 @@ public class CameraMovement : MonoBehaviour {
 	void Update() {
 		if (m_moving) {
 			m_movement.enabled = false;
-			if(navMeshAgent.enabled == true && navMeshAgent.remainingDistance < 1){
+			if(navMeshAgent.enabled == true && navMeshAgent.remainingDistance < 0.1f 
+					&& navMeshAgent.hasPath){
+
 				navMeshAgent.enabled = false;
 				transform.position = nextPos.position;
 			}
@@ -54,6 +56,10 @@ public class CameraMovement : MonoBehaviour {
 			navMeshAgent.enabled = true;
 			navMeshAgent.SetDestination(nextPos.position);
 		}
+	}
+
+	void ToMove() {
+		m_moving = true;
 	}
 
 	public bool IsMoving() {
