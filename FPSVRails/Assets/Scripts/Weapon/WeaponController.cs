@@ -3,10 +3,10 @@ public class WeaponController : MonoBehaviour {
     [SerializeField] LayerMask m_enemiesLayer;
     [SerializeField] float m_radius;
     [SerializeField] int m_damage;
-    [SerializeField] Camera m_camera;
     [SerializeField] float m_sensitivity;
     [SerializeField] CameraCover m_cover;
     RectTransform m_rect;
+    Camera m_camera;
     float m_halfWitdh;
     float m_halfHeigth;
     AmmoController ammoController;
@@ -16,14 +16,21 @@ public class WeaponController : MonoBehaviour {
         m_halfWitdh = Screen.width * .5f;
         m_halfHeigth = Screen.height * .5f;
         ammoController = AmmoController.Instance;
+        m_camera = Camera.main;
     }
 
     private void Update() {
-        Vector2 delta = InputManager.Instance.Aim();
+        Vector3 delta = InputManager.Instance.Aim();
         if (InputManager.Instance.VR_Mode()) {
-            m_rect.position = delta;
+           /* Vector3 pos = m_rect.position;
+            pos += delta;
+            pos.x = Mathf.Clamp(pos.x, 0f, m_halfWitdh * 2);
+            pos.y = Mathf.Clamp(pos.y, 0f, m_halfHeigth *2);
+            m_rect.position = pos;*/
+            //m_rect.position = new Vector2(m_halfWitdh, m_halfHeigth);
+            
         } else {
-            m_rect.position = new Vector2(m_halfWitdh, m_halfHeigth);
+           // m_rect.position = new Vector2(m_halfWitdh, m_halfHeigth);
         }
 
         Ray ray = m_camera.ScreenPointToRay(m_rect.position);

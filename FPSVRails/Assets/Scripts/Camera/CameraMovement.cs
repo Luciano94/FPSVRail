@@ -11,10 +11,10 @@ public class CameraMovement : MonoBehaviour {
 	bool m_moving;
 	NavMeshAgent navMeshAgent;
 
-
 	private void Awake() {
 		m_movement = GetComponent<GeneralMovement>();
 		navMeshAgent = GetComponent<NavMeshAgent>();
+
 		m_movement.enabled = false;
 	}
 
@@ -40,7 +40,8 @@ public class CameraMovement : MonoBehaviour {
 		transform.rotation = Quaternion.Lerp(transform.rotation,
 			nextPos.rotation, delta);
 		if(transform.rotation == nextPos.rotation){
-			m_movement.enabled = true;
+			if(!InputManager.Instance.VRmode)
+				m_movement.enabled = true;
 			m_moving = false;
 		}
 	}

@@ -18,6 +18,10 @@ public class InputManager : MonoBehaviour, IInput {
             return m_instance;
         }
     }
+
+    public bool VRmode{
+        get{return m_VRmode;}
+    }
     private void Awake() {
         if (m_VRmode) {
             m_input = GetComponent<VRInput>();
