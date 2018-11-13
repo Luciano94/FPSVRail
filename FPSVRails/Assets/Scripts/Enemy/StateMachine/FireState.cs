@@ -10,6 +10,7 @@ public class FireState : MonoBehaviour {
 	private float currentTime;
 	private float m_FireTime = 0.0f;
 	[SerializeField] private GameObject m_BulletObject;
+	[SerializeField] private Transform cannon;
 	[SerializeField] private Vector2 m_Offset;
 	private ObjectPool m_pool;
 
@@ -28,8 +29,8 @@ public class FireState : MonoBehaviour {
 			this.m_FireTime = Time.time + (float)Random.Range(this.m_Offset.x, this.m_Offset.y);
 			GameObject bullet;
 			if (m_pool.Request(out bullet)) {
-				bullet.transform.position = transform.position;
-				bullet.transform.rotation = transform.rotation;
+				bullet.transform.position = cannon.position;
+				bullet.transform.rotation = cannon.rotation;
 			}
 		}
 		if (currentTime > time) {

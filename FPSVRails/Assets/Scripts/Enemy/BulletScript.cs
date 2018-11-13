@@ -15,6 +15,7 @@ public class BulletScript : MonoBehaviour {
 	}
 
 	private void OnTriggerEnter(Collider other) {
+		if(other.tag == "Level") Disable();
 		if (other.tag == "Player" &&
 		!other.GetComponent<CameraMovement>().IsMoving())
 			impactSound.Play();

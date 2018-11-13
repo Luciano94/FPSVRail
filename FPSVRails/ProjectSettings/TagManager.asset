@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - EneTrigger
+  - Enemy
+  - Team2
+  - Level
   layers:
   - Default
   - TransparentFX
