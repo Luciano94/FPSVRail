@@ -5,18 +5,18 @@ public class WeaponController : MonoBehaviour {
     [SerializeField] int m_damage;
     [SerializeField] float m_sensitivity;
     [SerializeField] CameraCover m_cover;
-    RectTransform m_rect;
     Camera m_camera;
+    RectTransform m_rect;
     float m_halfWitdh;
     float m_halfHeigth;
     AmmoController ammoController;
 
     private void Awake() {
         m_rect = GetComponent<RectTransform>();
+        m_camera = Camera.main;
         m_halfWitdh = Screen.width * .5f;
         m_halfHeigth = Screen.height * .5f;
         ammoController = AmmoController.Instance;
-        m_camera = Camera.main;
     }
 
     private void Update() {
@@ -32,10 +32,10 @@ public class WeaponController : MonoBehaviour {
         } else {
            // m_rect.position = new Vector2(m_halfWitdh, m_halfHeigth);
         }
+        Vector3 posToScreen = m_camera.WorldToScreenPoint(m_rect.position);
+        Ray ray = m_camera.ScreenPointToRay(posToScreen);
 
-        Ray ray = m_camera.ScreenPointToRay(m_rect.position);
-
-        Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100f, Color.red);
+        Debug.DrawLine(ray.origin, ray.origin + ray.direction * 100f, Color.magenta);
         if (InputManager.Instance.Fire() && !m_cover.IsCovered()) {
             if (ammoController.shoot()) {
                 RaycastHit hit;

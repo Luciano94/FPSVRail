@@ -4595,7 +4595,7 @@ Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: pb_Mesh35402
+  m_Name: pb_Mesh79688
   serializedVersion: 9
   m_SubMeshes:
   - serializedVersion: 2
@@ -6300,7 +6300,7 @@ Prefab:
         type: 2}
       propertyPath: m_camera
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 479341107}
     - target: {fileID: 114563097464419690, guid: 334c31854512f6f4299cc0b455776176,
         type: 2}
       propertyPath: m_cover
@@ -6319,7 +6319,7 @@ Prefab:
     - target: {fileID: 223536338322373558, guid: 334c31854512f6f4299cc0b455776176,
         type: 2}
       propertyPath: m_PlaneDistance
-      value: 1
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 224226481635049588, guid: 334c31854512f6f4299cc0b455776176,
         type: 2}
@@ -6330,6 +6330,11 @@ Prefab:
         type: 2}
       propertyPath: m_AnchoredPosition.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114772890043222872, guid: 334c31854512f6f4299cc0b455776176,
+        type: 2}
+      propertyPath: m_Sprite
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 334c31854512f6f4299cc0b455776176, type: 2}
@@ -10752,6 +10757,7 @@ GameObject:
   - component: {fileID: 1069638834}
   - component: {fileID: 367460605}
   - component: {fileID: 367460606}
+  - component: {fileID: 1069638836}
   - component: {fileID: 1069638833}
   - component: {fileID: 1069638832}
   m_Layer: 12
@@ -10847,6 +10853,17 @@ CapsuleCollider:
   m_Height: 0.5
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1069638836
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1069638830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808d05bec62b2594da48f0970605eafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1069638837
 Transform:
   m_ObjectHideFlags: 0

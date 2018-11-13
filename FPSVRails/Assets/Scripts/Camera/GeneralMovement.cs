@@ -24,10 +24,6 @@ public class GeneralMovement : MonoBehaviour {
     }
 
     private void Movement() {
-        if (InputManager.Instance.CheckResetCamera()) {
-            rotVert = 0f;
-            rotHor = 0f;
-        }
         Vector2 camInput = InputManager.Instance.CameraMovement();
         rotVert += camInput.y * speed * Time.deltaTime;;
         rotVert = Mathf.Clamp(rotVert, minLimit.x, maxLimit.x);
@@ -37,4 +33,5 @@ public class GeneralMovement : MonoBehaviour {
         rot += rotation;
         transform.localEulerAngles = rot;
     }
+
 }
