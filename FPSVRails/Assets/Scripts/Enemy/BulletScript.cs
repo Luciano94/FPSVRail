@@ -7,7 +7,7 @@ public class BulletScript : MonoBehaviour {
 	[SerializeField] private float lifetime = 5f;
 	[SerializeField] private AudioSource shootSound;
 	[SerializeField] private AudioSource impactSound;
-	void Start() {
+	void OnEnable() {
 		shootSound.Play();
 		Vector3 rndDirection = new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0);
 		transform.Rotate(rndDirection);
