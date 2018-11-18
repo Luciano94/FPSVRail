@@ -12,14 +12,16 @@ public class CameraCover : MonoBehaviour {
 	bool m_covered;
 	AmmoController ammoController;
 
-	private void Start() {
+	private void OnEnable() {
 		m_camMovement = GetComponent<CameraMovement>();
 		m_targetPosition = transform.position;
 		m_covered = false;
 		ammoController = AmmoController.Instance;
 	}
 
+
 	private void LateUpdate() {
+		Debug.Log(m_camMovement.IsMoving());
 		if (!m_camMovement.IsMoving()) {
 			if (InputManager.Instance.TakeCover()) {
 				TakeCover();

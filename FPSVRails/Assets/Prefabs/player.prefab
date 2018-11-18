@@ -11,6 +11,24 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 1379980476230872}
   m_IsPrefabAsset: 1
+--- !u!1 &1054048747407804
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4944305956942208}
+  - component: {fileID: 20550651034079176}
+  - component: {fileID: 81909420926428984}
+  - component: {fileID: 114037932137028056}
+  m_Layer: 0
+  m_Name: Camera
+  m_TagString: MainCamera
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1233966937380364
 GameObject:
   m_ObjectHideFlags: 0
@@ -38,14 +56,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4248619495773378}
-  - component: {fileID: 20930931625971820}
-  - component: {fileID: 81007870323864526}
   - component: {fileID: 136431464111720788}
   - component: {fileID: 114548757875866274}
   - component: {fileID: 114958323023833890}
   - component: {fileID: 114631450197429152}
   - component: {fileID: 114163708764105692}
   - component: {fileID: 114226680766612366}
+  - component: {fileID: 114175946369594952}
   - component: {fileID: 54859793968288956}
   - component: {fileID: 195452217787767974}
   m_Layer: 12
@@ -82,11 +99,12 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1379980476230872}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: 2, y: 1.62, z: 0}
+  m_LocalPosition: {x: 2, y: 1.96, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4559405197312562}
   - {fileID: 4514357828012870}
+  - {fileID: 4944305956942208}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
@@ -96,7 +114,7 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1443050306924120}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -116,12 +134,25 @@ Transform:
   m_Father: {fileID: 4248619495773378}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!20 &20930931625971820
+--- !u!4 &4944305956942208
+Transform:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1054048747407804}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4248619495773378}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &20550651034079176
 Camera:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1379980476230872}
+  m_GameObject: {fileID: 1054048747407804}
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
@@ -171,12 +202,12 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!81 &81007870323864526
+--- !u!81 &81909420926428984
 AudioListener:
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1379980476230872}
+  m_GameObject: {fileID: 1054048747407804}
   m_Enabled: 1
 --- !u!82 &82381503464728512
 AudioSource:
@@ -558,6 +589,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &114037932137028056
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1054048747407804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41679d3338266415f88d226e6bf3d0be, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114163708764105692
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -572,6 +614,17 @@ MonoBehaviour:
   m_speed: 10
   m_height: 1
   m_fireButton: {fileID: 0}
+--- !u!114 &114175946369594952
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1379980476230872}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 808d05bec62b2594da48f0970605eafe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114182840059029914
 MonoBehaviour:
   m_ObjectHideFlags: 1

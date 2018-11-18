@@ -7,20 +7,17 @@ public class WeaponController : MonoBehaviour {
     [SerializeField] CameraCover m_cover;
     Camera m_camera;
     RectTransform m_rect;
-    float m_halfWitdh;
-    float m_halfHeigth;
     AmmoController ammoController;
 
     private void Awake() {
         m_rect = GetComponent<RectTransform>();
         m_camera = Camera.main;
-        m_halfWitdh = Screen.width * .5f;
-        m_halfHeigth = Screen.height * .5f;
+
         ammoController = AmmoController.Instance;
     }
 
     private void Update() {
-        Vector3 delta = InputManager.Instance.Aim();
+      //  Vector3 delta = InputManager.Instance.Aim();
         if (InputManager.Instance.VR_Mode()) {
            /* Vector3 pos = m_rect.position;
             pos += delta;
