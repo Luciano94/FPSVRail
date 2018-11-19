@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(VRInput))]
 [RequireComponent(typeof(ScreenInput))]
@@ -8,6 +9,7 @@ public class InputManager : MonoBehaviour, IInput {
     [SerializeField] bool m_VRmode = false;
     IInput m_input;
     static InputManager m_instance;
+
     public static InputManager Instance {
         get {
             m_instance = FindObjectOfType<InputManager>();
@@ -60,8 +62,8 @@ public class InputManager : MonoBehaviour, IInput {
         return m_input.CheckResetCamera();
     }
 
-    public bool VR_Mode() {
-        return m_VRmode;
+    public void SetVR(bool state) {
+        m_VRmode = state;
     }
 
     public void SwitchMode() {

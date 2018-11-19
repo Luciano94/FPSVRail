@@ -3,8 +3,6 @@
 public class VRInput : MonoBehaviour, IInput {
     bool m_hasGyro;
     Gyroscope m_gyro;
-    Vector2 m_reticle;
-    float m_screenWidth;
     float m_screenHeight;
 
     private void Awake() {
@@ -13,11 +11,6 @@ public class VRInput : MonoBehaviour, IInput {
             m_gyro = Input.gyro;
             m_gyro.enabled = true;
         }
-        m_screenWidth = Screen.currentResolution.width;
-        m_screenHeight = Screen.currentResolution.height;
-        m_reticle = new Vector2(m_screenWidth * .5f,
-            m_screenHeight * .5f);
-        Debug.Log(m_reticle);
     }
 
     public bool TakeCover() {

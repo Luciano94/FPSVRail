@@ -17,18 +17,6 @@ public class WeaponController : MonoBehaviour {
     }
 
     private void Update() {
-      //  Vector3 delta = InputManager.Instance.Aim();
-        if (InputManager.Instance.VR_Mode()) {
-           /* Vector3 pos = m_rect.position;
-            pos += delta;
-            pos.x = Mathf.Clamp(pos.x, 0f, m_halfWitdh * 2);
-            pos.y = Mathf.Clamp(pos.y, 0f, m_halfHeigth *2);
-            m_rect.position = pos;*/
-            //m_rect.position = new Vector2(m_halfWitdh, m_halfHeigth);
-            
-        } else {
-           // m_rect.position = new Vector2(m_halfWitdh, m_halfHeigth);
-        }
         Vector3 posToScreen = m_camera.WorldToScreenPoint(m_rect.position);
         Ray ray = m_camera.ScreenPointToRay(posToScreen);
 

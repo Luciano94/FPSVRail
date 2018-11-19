@@ -5,7 +5,7 @@ public class EndLevel : MonoBehaviour {
 
     private void Update() {
         if (Input.anyKey) {
-            SceneManager.LoadScene("Prototipe");
+            SceneManager.LoadScene("Level");
         }
     }
 
