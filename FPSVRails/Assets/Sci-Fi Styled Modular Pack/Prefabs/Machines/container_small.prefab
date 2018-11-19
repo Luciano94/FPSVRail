@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3307204}
   - component: {fileID: 2364954}
   - component: {fileID: 6580194}
+  - component: {fileID: 205904871124653878}
   m_Layer: 0
   m_Name: container_small
   m_TagString: Untagged
@@ -96,3 +97,19 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 155844}
   m_IsPrefabAsset: 1
+--- !u!205 &205904871124653878
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 155844}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.12464675
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1

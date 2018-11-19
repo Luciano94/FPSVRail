@@ -377,6 +377,7 @@ GameObject:
   - component: {fileID: 114485046717824368}
   - component: {fileID: 114177095234837018}
   - component: {fileID: 114364458723962826}
+  - component: {fileID: 205152327560817178}
   m_Layer: 13
   m_Name: Enemy
   m_TagString: Untagged
@@ -1279,8 +1280,8 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1324442225271050}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.115, y: 0.88, z: 9.078}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4338041372627732}
@@ -2244,7 +2245,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1324442225271050}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d439f0d68c6987e4584ffbdfb1b7ff1e, type: 3}
   m_Name: 
@@ -2268,7 +2269,7 @@ MonoBehaviour:
   - {fileID: 114544311935015494}
   - {fileID: 114546190788518250}
   initState: 0
-  actualState: {fileID: 0}
+  actualState: {fileID: 114459936173545374}
 --- !u!114 &114522470029627122
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -2297,7 +2298,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 027c48834ffd42943ae366b04c9598a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetPosition: {x: 1, y: 1, z: 0}
+  TargetPosition: {x: 1, y: 0, z: 0}
   speed: 5
 --- !u!114 &114546190788518250
 MonoBehaviour:
@@ -2476,3 +2477,19 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.030602813, y: 0.0048831403, z: 0.11399168}
     m_Extent: {x: 0.63342655, y: 0.74348235, z: 0.6181349}
   m_DirtyAABB: 0
+--- !u!205 &205152327560817178
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1324442225271050}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.10883398
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1

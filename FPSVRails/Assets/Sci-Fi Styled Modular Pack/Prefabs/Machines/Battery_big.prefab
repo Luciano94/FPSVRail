@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3328572}
   - component: {fileID: 2359638}
   - component: {fileID: 6529104}
+  - component: {fileID: 205561993508723050}
   m_Layer: 0
   m_Name: Battery_big
   m_TagString: Untagged
@@ -97,3 +98,19 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 195924}
   m_IsPrefabAsset: 1
+--- !u!205 &205561993508723050
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195924}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.066270724
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1

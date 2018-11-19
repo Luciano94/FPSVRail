@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3394698}
   - component: {fileID: 2396962}
   - component: {fileID: 6510422}
+  - component: {fileID: 205030768684684604}
   m_Layer: 0
   m_Name: bed
   m_TagString: Untagged
@@ -96,3 +97,19 @@ Prefab:
   m_SourcePrefab: {fileID: 0}
   m_RootGameObject: {fileID: 153498}
   m_IsPrefabAsset: 1
+--- !u!205 &205030768684684604
+LODGroup:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 153498}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
+  m_Size: 1
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LODs:
+  - screenRelativeHeight: 0.08540549
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
