@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.XR;
 
 [RequireComponent(typeof(VRInput))]
 [RequireComponent(typeof(ScreenInput))]
@@ -25,13 +26,10 @@ public class InputManager : MonoBehaviour, IInput {
         get{return m_VRmode;}
     }
     private void Awake() {
-        if (m_VRmode) {
-            m_input = GetComponent<VRInput>();
-            m_screenInputCanvas.SetActive(false);
-        } else {
-            m_input = GetComponent<ScreenInput>();
-            m_screenInputCanvas.SetActive(true);
-        }
+        m_input = GetComponent<ScreenInput>();
+        m_screenInputCanvas.SetActive(true);
+        XRSettings.enabled = false;
+        m_VRmode = false;
     }
 
     public Vector2 Aim() {
@@ -62,17 +60,15 @@ public class InputManager : MonoBehaviour, IInput {
         return m_input.CheckResetCamera();
     }
 
-    public void SetVR(bool state) {
-        m_VRmode = state;
-    }
-
     public void SwitchMode() {
         if (m_VRmode) {
             m_input = GetComponent<ScreenInput>();
+            XRSettings.enabled = false;
             m_screenInputCanvas.SetActive(true);
             m_VRmode = false;
         } else {
             m_input = GetComponent<VRInput>();
+            XRSettings.enabled = true;
             m_screenInputCanvas.SetActive(false);
             m_VRmode = true;
         }
