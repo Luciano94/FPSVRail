@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class AmmoController : MonoBehaviour {
 
@@ -18,25 +19,23 @@ public class AmmoController : MonoBehaviour {
 	}
 
 	[SerializeField] private int maxAmmo;
-	[SerializeField] Image[] ammoImg;
 	[SerializeField] AudioSource shootSound;
 	[SerializeField] AudioSource reloadSound;
 	[SerializeField] AudioSource emptyGun;
 	[SerializeField] Image reloadImg;
+	public UnityEvent BulletConsumed;
+	public UnityEvent Reload;
 	private int currentAmmo;
 
 	private void Awake() {
 		currentAmmo = maxAmmo;
-		foreach (Image img in ammoImg){
-			img.enabled = true;
-		}
 		reloadImg.enabled = false;
 	}
 	public bool shoot(){
 		if(currentAmmo > 0){
 			shootSound.Play();
 			currentAmmo--;
-			ammoImg[currentAmmo].enabled = false;
+			BulletConsumed.Invoke();
 			return true;
 		}
 		emptyGun.Play();
@@ -49,9 +48,7 @@ public class AmmoController : MonoBehaviour {
 			reloadImg.enabled =  false;
 			reloadSound.Play();
 			currentAmmo = maxAmmo;
-			foreach (Image img in ammoImg){
-				img.enabled = true;
-			}
+			Reload.Invoke();
 		}
 	}
 }

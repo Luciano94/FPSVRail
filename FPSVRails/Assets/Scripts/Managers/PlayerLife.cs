@@ -6,14 +6,22 @@ using UnityEngine.UI;
 public class PlayerLife : MonoBehaviour {
 
 	[SerializeField] private int health = 3;
-	[SerializeField] private Image[] healthImg;
 	public UnityEvent damageTaken;
 	private CameraMovement cameraMovement;
 
-	private void Awake() {	
-		foreach(Image img in healthImg){
-			img.enabled = true;
+	private static PlayerLife instance;
+	public static PlayerLife Instance{
+		get{
+			instance = FindObjectOfType<PlayerLife>();
+			if(instance == null){
+				GameObject go = new GameObject("PlayerLife");
+				instance = go.AddComponent<PlayerLife>();
+			}
+			return instance;
 		}
+	}
+
+	private void Awake() {	
 		cameraMovement = GetComponent<CameraMovement>();
 	}
 
@@ -21,7 +29,6 @@ public class PlayerLife : MonoBehaviour {
 		if(!cameraMovement.IsMoving())	
 			if (health > 1) {
 				health--;
-				healthImg[health].enabled = false;
 				damageTaken.Invoke();
 				Handheld.Vibrate();
 			}
