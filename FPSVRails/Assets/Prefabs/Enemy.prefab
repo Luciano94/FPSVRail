@@ -2281,12 +2281,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7785e5d182c52ee4dbecc4e79305240a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minTime: 2
-  maxTime: 4
+  minTime: 1
+  maxTime: 2
   m_BulletObject: {fileID: 1581652032335988, guid: 13d47fa87b2d0344eb92a81001b5b16d,
     type: 2}
   cannon: {fileID: 4341780487526530}
-  m_Offset: {x: 0, y: 2}
+  m_Offset: {x: 2, y: 5}
 --- !u!114 &114544311935015494
 MonoBehaviour:
   m_ObjectHideFlags: 1

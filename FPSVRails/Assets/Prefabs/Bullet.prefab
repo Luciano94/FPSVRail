@@ -316,10 +316,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab2fd84c8e55e6f46855df222ba617cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
-  lifetime: 5
+  speed: 15
+  lifetime: 15
   shootSound: {fileID: 82245113733264046}
   impactSound: {fileID: 82987446019758220}
+  Rotratio: 10
 --- !u!136 &136219284545151994
 CapsuleCollider:
   m_ObjectHideFlags: 1

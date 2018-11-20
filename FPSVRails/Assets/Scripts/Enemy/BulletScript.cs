@@ -7,10 +7,12 @@ public class BulletScript : MonoBehaviour {
 	[SerializeField] private float lifetime = 5f;
 	[SerializeField] private AudioSource shootSound;
 	[SerializeField] private AudioSource impactSound;
+    [SerializeField] private float Rotratio = 5;
 	void OnEnable() {
 		shootSound.Play();
-		Vector3 rndDirection = new Vector3(Random.Range(-5, 5), Random.Range(-5, 5), 0);
+		Vector3 rndDirection = new Vector3(Random.Range(-Rotratio, Rotratio), Random.Range(-Rotratio, Rotratio), 0);
 		transform.Rotate(rndDirection);
+        CancelInvoke("Disable");
 		Invoke("Disable", lifetime);
 	}
 
