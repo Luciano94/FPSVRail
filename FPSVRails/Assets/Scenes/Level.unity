@@ -5936,7 +5936,7 @@ Prefab:
     - target: {fileID: 205152327560817178, guid: cdc4cafe78545a944862dc96736f53e4,
         type: 2}
       propertyPath: m_LODs.Array.data[0].screenRelativeHeight
-      value: 0.012755524
+      value: 0.028873496
       objectReference: {fileID: 0}
     - target: {fileID: 205152327560817178, guid: cdc4cafe78545a944862dc96736f53e4,
         type: 2}
