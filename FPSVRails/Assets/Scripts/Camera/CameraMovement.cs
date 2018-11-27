@@ -2,10 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class CameraMovement : MonoBehaviour {
 	[SerializeField] CameraRail m_cameraRail;
 	[SerializeField] float m_speed = 1f;
+	[SerializeField] Button m_fireButton;
+	[SerializeField] Button m_coverButton;
 	GeneralMovement m_movement;
 	Transform nextPos;
 	bool m_moving;
@@ -27,8 +30,6 @@ public class CameraMovement : MonoBehaviour {
 		Vector3 target = new Vector3(nextPos.position.x, transform.position.y, nextPos.position.z);
 		float dist = Vector3.Distance(transform.position,target);
 		if (m_moving) {
-			cameraCover.enabled = false;
-			m_movement.enabled = false;
 			float distY = Mathf.Abs(transform.position.y - nextPos.position.y);
 			Debug.Log("dist Y: " + distY);
 			if(navMeshAgent.enabled == true && dist < 0.1f &&  navMeshAgent.hasPath){
@@ -49,6 +50,8 @@ public class CameraMovement : MonoBehaviour {
 				m_movement.enabled = true;
 			m_moving = false;
 			cameraCover.enabled = true;
+			m_fireButton.interactable = true;
+			m_coverButton.interactable = true;
 		}
 	}
 
@@ -57,6 +60,10 @@ public class CameraMovement : MonoBehaviour {
 		m_cameraRail.GetNextPosition(ref nextPos);
 		m_movement.enabled = false;
 		m_moving = true;
+		cameraCover.enabled = false;
+		m_movement.enabled = false;
+		m_fireButton.interactable = false;
+		m_coverButton.interactable = false;
 		if(nextPos != null)	{
 			navMeshAgent.enabled = true;
 			navMeshAgent.SetDestination(nextPos.position);
