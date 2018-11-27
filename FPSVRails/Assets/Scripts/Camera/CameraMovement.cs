@@ -31,7 +31,6 @@ public class CameraMovement : MonoBehaviour {
 		float dist = Vector3.Distance(transform.position,target);
 		if (m_moving) {
 			float distY = Mathf.Abs(transform.position.y - nextPos.position.y);
-			Debug.Log("dist Y: " + distY);
 			if(navMeshAgent.enabled == true && dist < 0.1f &&  navMeshAgent.hasPath){
 				
 				navMeshAgent.enabled = false;
