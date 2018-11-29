@@ -15567,7 +15567,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 498280, guid: 8c10b28a5dc86904db537e28568805a9, type: 2}
       propertyPath: m_LocalScale.y
-      value: 0.7
+      value: 0.8
       objectReference: {fileID: 0}
     - target: {fileID: 111774, guid: 8c10b28a5dc86904db537e28568805a9, type: 2}
       propertyPath: m_StaticEditorFlags
